@@ -19,7 +19,17 @@ RSpec.describe TicTacToe do
 
       expect(game.state).to eq(['', '', '', 'X', '', '', '', '', ''])
     end
-
   end
+
+
+  describe TicTacToe::Turn do
+
+    it "should start with X" do
+      turn_object = TicTacToe::Turn.new
+
+      expect(turn_object.turn).to eq("X")
+    end
+  end
+
 
 end

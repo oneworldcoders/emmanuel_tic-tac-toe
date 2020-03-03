@@ -8,6 +8,7 @@ module TicTacToe
       
   end
 
+
   class Game
 
     attr_accessor :state
@@ -16,6 +17,16 @@ module TicTacToe
       @state = state
     end
 
+  end
+
+
+  class Turn
+
+    attr_accessor :turn
+
+    def initialize
+      @turn = "X"
+    end
   end
 
 end
