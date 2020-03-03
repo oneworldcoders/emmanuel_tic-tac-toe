@@ -29,6 +29,16 @@ RSpec.describe TicTacToe do
 
       expect(turn_object.turn).to eq("X")
     end
+
+    it "should switch turn after switch is called" do
+      turn_object = TicTacToe::Turn.new
+
+      turn_object.switch_turn
+
+      expect(turn_object.turn).to eq("O")
+    end
+
+
   end
 
 

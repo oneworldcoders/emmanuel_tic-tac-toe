@@ -27,6 +27,10 @@ module TicTacToe
     def initialize
       @turn = "X"
     end
+
+    def switch_turn
+     @turn = @turn == "X" ? "O" : "X"
+    end
   end
 
 end
