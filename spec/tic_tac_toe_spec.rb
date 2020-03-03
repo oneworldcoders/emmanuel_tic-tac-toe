@@ -30,6 +30,17 @@ RSpec.describe TicTacToe do
 
       expect(game.state).to eq(['X', 'O', '', '', '', '', '', '', ''])
     end
+
+    it "should not override a move" do
+      game = TicTacToe::Game.new
+      player1 = TicTacToe::Player.new("X")
+      player2 = TicTacToe::Player.new("O")
+
+      player1.play(1, game)
+      player2.play(1, game)
+
+      expect(game.state).to eq(['X', '', '', '', '', '', '', '', ''])
+    end
   end
 
 
@@ -48,8 +59,6 @@ RSpec.describe TicTacToe do
 
       expect(turn_object.turn).to eq("O")
     end
-
-
   end
 
 

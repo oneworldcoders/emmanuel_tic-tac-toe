@@ -10,7 +10,9 @@ module TicTacToe
 
     def play(position, game)
       index = position -= 1
-      game.state[index] = marker
+      if game.state[index] == ""
+        game.state[index] = marker
+      end
     end
   end
 
