@@ -1,8 +1,21 @@
-
 module TicTacToe
-  class App
-    def say_hello
-      puts "Hello, welcome to Tic Tac Toe"
+
+  class Player
+    def play(position, game)
+      index = position -= 1
+      game.state[index] = "X"
     end
+      
   end
+
+  class Game
+
+    attr_accessor :state
+
+    def initialize(state=['', '', '', '', '', '', '', '', ''])
+      @state = state
+    end
+
+  end
+
 end
