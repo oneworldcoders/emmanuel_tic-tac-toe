@@ -1,11 +1,17 @@
 module TicTacToe
 
   class Player
+
+    attr_accessor :marker
+
+    def initialize(marker = "X")
+      @marker = marker
+    end
+
     def play(position, game)
       index = position -= 1
-      game.state[index] = "X"
+      game.state[index] = marker
     end
-      
   end
 
 
@@ -16,7 +22,6 @@ module TicTacToe
     def initialize(state=['', '', '', '', '', '', '', '', ''])
       @state = state
     end
-
   end
 
 
