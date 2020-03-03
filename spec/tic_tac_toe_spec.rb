@@ -11,6 +11,15 @@ RSpec.describe TicTacToe do
       expect(game.state).to eq(['X', '', '', '', '', '', '', '', ''])
     end
 
+    it "should cmark the first index with a play in position 4" do
+      game = TicTacToe::Game.new
+      player1 = TicTacToe::Player.new
+
+      player1.play(4, game)
+
+      expect(game.state).to eq(['', '', '', 'X', '', '', '', '', ''])
+    end
+
   end
 
 end
