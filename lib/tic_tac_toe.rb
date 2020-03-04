@@ -1,42 +1,9 @@
 module TicTacToe
 
-  class Player
+  class Welcome
 
-    attr_accessor :marker
-
-    def initialize(marker = "X")
-      @marker = marker
-    end
-
-    def play(position, game)
-      index = position -= 1
-      if game.state[index] == ""
-        game.state[index] = marker
-      end
-    end
-  end
-
-
-  class Game
-
-    attr_accessor :state
-
-    def initialize(state=['', '', '', '', '', '', '', '', ''])
-      @state = state
-    end
-  end
-
-
-  class Turn
-
-    attr_accessor :turn
-
-    def initialize
-      @turn = "X"
-    end
-
-    def switch_turn
-     @turn = @turn == "X" ? "O" : "X"
+    def welcome
+      puts "Welcome to tic tac toe"
     end
   end
 
