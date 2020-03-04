@@ -14,27 +14,28 @@ RSpec.describe Player do
         it "should mark the first index with a play in position 1" do
             @player1.play(1, @game)
         
-            expect(@game.state).to eq(['X', '', '', '', '', '', '', '', ''])
+            expect(@game.get_mark_at(1)).to eq("X")
         end
       
-        it "should mark the first index with a play in position 4" do
+        it "should mark the fourth index with a play in position 4" do
             @player1.play(4, @game)
         
-            expect(@game.state).to eq(['', '', '', 'X', '', '', '', '', ''])
+            expect(@game.get_mark_at(4)).to eq("X")
         end
     
-        it "should play 'O' on second turn" do
+        it "plays 'O's for player 2" do
             @player1.play(1, @game)
             @player2.play(2, @game)
         
-            expect(@game.state).to eq(['X', 'O', '', '', '', '', '', '', ''])
+            expect(@game.get_mark_at(2)).to eq("O")
         end
     
         it "should not override a move" do
-            @player1.play(1, @game)
-            @player2.play(1, @game)
+            position = 1
+            @player1.play(position, @game)
+            @player2.play(position, @game)
         
-            expect(@game.state).to eq(['X', '', '', '', '', '', '', '', ''])
+            expect(@game.get_mark_at(position)).to eq("X")
         end
     end
 end

@@ -1,15 +1,12 @@
 class Player
 
-    attr_accessor :marker
-
     def initialize(marker = "X")
       @marker = marker
     end
 
     def play(position, game)
-      index = position -= 1
-      if game.state[index] == ""
-        game.state[index] = marker
+      if game.get_mark_at(position) == ""
+        game.set_mark(position, @marker)
       end
     end
 end
