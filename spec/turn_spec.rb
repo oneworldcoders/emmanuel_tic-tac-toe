@@ -2,18 +2,18 @@ require "turn"
 
 RSpec.describe Turn do
 
-    it "should start with X" do
-      turn_object = Turn.new
+  before(:each) do
+    @turn_object = Turn.new
+  end
 
-      expect(turn_object.turn).to eq("X")
-    end
+  it "should start with X" do
+    expect(@turn_object.turn).to eq("X")
+  end
 
-    it "should switch turn after switch is called" do
-      turn_object = Turn.new
+  it "should switch turn after switch is called" do
+    @turn_object.switch_turn
 
-      turn_object.switch_turn
-
-      expect(turn_object.turn).to eq("O")
-    end
+    expect(@turn_object.turn).to eq("O")
+  end
 
 end
