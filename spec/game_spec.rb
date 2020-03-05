@@ -149,6 +149,16 @@ RSpec.describe Game do
                 expect(@game.check_diagonal_win(@player1.get_mark)).to eq(true)
             end
         end
+
+        
+        context "Check Draw" do
+            xit "should have no available moves and win" do
+                expect(@game.check_win(@player1.get_mark)).to eq(false)
+                expect(@game.check_win(@player2.get_mark)).to eq(false)
+                expect(@game.available_moves).to eq([])
+            end
+        end
+
     end
 
 end
