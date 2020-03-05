@@ -26,6 +26,9 @@ class Game
   end
 
   def check_vertical_win(mark)
-    true
+    if(@state[0] == "X" && @state[3] == "X" && @state[6] == "X")
+      return true
+    end
+    false
   end
 end

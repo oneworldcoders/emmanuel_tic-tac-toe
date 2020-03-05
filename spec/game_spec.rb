@@ -86,6 +86,13 @@ RSpec.describe Game do
                 end
                 expect(@game.check_vertical_win(@player1.get_mark)).to eq(true)
             end
+
+            it "should return false for a draw in the first column" do
+                @player1.play(1, @game)
+                @player2.play(4, @game)
+                @player1.play(7, @game)
+                expect(@game.check_vertical_win(@player1.get_mark)).to eq(false)
+            end
         end
     end
 
