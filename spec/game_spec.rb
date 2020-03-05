@@ -128,8 +128,16 @@ RSpec.describe Game do
                 @player1.play(1, @game)
                 @player2.play(5, @game)
                 @player1.play(9, @game)
-               
                 expect(@game.check_diagonal_win(@player1.get_mark)).to eq(false)
+            end
+
+            it "should return true for a win for player 2 in the first diagonal" do
+                i = 1
+                while i <= 9
+                    @player2.play(i, @game)
+                    i += 4
+                end
+                expect(@game.check_diagonal_win(@player2.get_mark)).to eq(true)
             end
         end
     end
