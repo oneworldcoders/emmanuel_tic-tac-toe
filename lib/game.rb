@@ -44,6 +44,13 @@ class Game
     end
   end
 
+  def check_win(mark)
+    if(check_diagonal_win(mark) || check_horizontal_win(mark) || check_vertical_win(mark))
+      return true
+    end
+    false
+  end
+
   def available_moves
     available_moves = []
     for index in 0..8 do

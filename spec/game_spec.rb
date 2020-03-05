@@ -164,7 +164,22 @@ RSpec.describe Game do
                 end
             end
 
-            xit "should have no available moves and win" do
+            it "should have no available moves and win" do
+                # X X O
+                # O O X
+                # X O X
+
+                @player1.play(1, @game)
+                @player1.play(2, @game)
+                @player1.play(7, @game)
+                @player1.play(6, @game)
+                @player1.play(9, @game)
+
+                @player2.play(5, @game)
+                @player2.play(3, @game)
+                @player2.play(4, @game)
+                @player2.play(8, @game)
+
                 expect(@game.check_win(@player1.get_mark)).to eq(false)
                 expect(@game.check_win(@player2.get_mark)).to eq(false)
                 expect(@game.available_moves).to eq([])
