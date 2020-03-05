@@ -5,7 +5,7 @@ class Player
     end
 
     def get_mark
-      "X"
+      @marker
     end
 
     def play(position, game)

@@ -41,5 +41,9 @@ RSpec.describe Player do
         it "sets player1 marker to X" do
             expect(@player1.get_mark).to eq("X")
         end
+
+        it "sets player2 marker to O on creation" do
+            expect(@player2.get_mark).to eq("O")
+        end
     end
 end
