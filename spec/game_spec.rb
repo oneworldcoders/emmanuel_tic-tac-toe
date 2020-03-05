@@ -157,6 +157,11 @@ RSpec.describe Game do
                 it "should have all free slots initially" do
                     expect(@game.available_moves).to eq([1, 2, 3, 4, 5, 6, 7, 8, 9])
                 end
+
+                it "shouldn't have an available slot after a play in that slot" do
+                    @player1.play(1, @game)
+                    expect(@game.available_moves).to eq([2, 3, 4, 5, 6, 7, 8, 9])
+                end
             end
 
             xit "should have no available moves and win" do

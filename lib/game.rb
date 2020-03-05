@@ -45,7 +45,13 @@ class Game
   end
 
   def available_moves
-    [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    available_moves = []
+    for index in 0..8 do
+      if(@state[index] == "")
+        available_moves.push(index + 1)
+      end
+    end
+    available_moves
   end
   
 end
