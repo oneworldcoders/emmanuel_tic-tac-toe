@@ -123,6 +123,14 @@ RSpec.describe Game do
                 end
                 expect(@game.check_diagonal_win(@player1.get_mark)).to eq(true)
             end
+
+            it "should return false for a draw in the first diaginal" do
+                @player1.play(1, @game)
+                @player2.play(5, @game)
+                @player1.play(9, @game)
+               
+                expect(@game.check_diagonal_win(@player1.get_mark)).to eq(false)
+            end
         end
     end
 
