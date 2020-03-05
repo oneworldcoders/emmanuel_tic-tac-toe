@@ -37,5 +37,9 @@ RSpec.describe Player do
         
             expect(@game.get_mark_at(position)).to eq("X")
         end
+
+        it "sets player1 marker to X" do
+            expect(@player1.get_mark).to eq("X")
+        end
     end
 end

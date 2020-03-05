@@ -1,4 +1,5 @@
 require "game"
+require "player"
 
 RSpec.describe Game do
 

@@ -4,6 +4,10 @@ class Player
       @marker = marker
     end
 
+    def get_mark
+      "X"
+    end
+
     def play(position, game)
       if game.get_mark_at(position) == ""
         game.set_mark(position, @marker)
