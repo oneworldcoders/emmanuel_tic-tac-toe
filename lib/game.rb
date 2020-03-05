@@ -15,10 +15,13 @@ class Game
   end
 
   def check_horizontal_win(mark)
-    if(@state[0] == mark && @state[1] == mark && @state[2] == mark)
-      true
-    else
-      false
+    i = 0
+    while i <= 8
+      if(@state[i] == mark && @state[i+1] == mark && @state[i+2] == mark)
+        return true
+      end
+      i += 3
     end
+    false
   end
 end

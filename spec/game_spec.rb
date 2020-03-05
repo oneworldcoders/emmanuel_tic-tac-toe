@@ -65,6 +65,15 @@ RSpec.describe Game do
 
             expect(@game.check_horizontal_win(@player2.get_mark)).to eq(true)
         end
+
+        it "should return true for a win in the second row" do
+            for i in 4..6 do
+                @player1.play(i, @game)
+            end
+
+            expect(@game.check_horizontal_win(@player1.get_mark)).to eq(true)
+        end
+
     end
 
 end
