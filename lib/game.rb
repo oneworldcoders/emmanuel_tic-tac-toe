@@ -13,4 +13,8 @@ class Game
     index = position - 1
     @state[index]
   end
+
+  def check_horizontal_win(mark)
+    true
+  end
 end

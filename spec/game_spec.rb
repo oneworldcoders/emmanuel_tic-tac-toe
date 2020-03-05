@@ -33,4 +33,18 @@ RSpec.describe Game do
             expect(@game.get_mark_at(i+1)).to eq("X")
         end
     end
+
+    context "Hoizontal Win" do
+        it "should ..." do
+            player = Player.new
+            game = Game.new
+
+            for i in 1..3 do
+                player.play(i, game)
+            end
+
+            expect(game.check_horizontal_win(player.get_mark)).to eq(true)
+        end
+    end
+
 end
