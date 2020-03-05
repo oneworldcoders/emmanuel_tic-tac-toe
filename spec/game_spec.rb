@@ -150,8 +150,15 @@ RSpec.describe Game do
             end
         end
 
-        
+
         context "Check Draw" do
+
+            describe "available moves" do
+                it "should have all free slots initially" do
+                    expect(@game.available_moves).to eq([1, 2, 3, 4, 5, 6, 7, 8, 9])
+                end
+            end
+
             xit "should have no available moves and win" do
                 expect(@game.check_win(@player1.get_mark)).to eq(false)
                 expect(@game.check_win(@player2.get_mark)).to eq(false)
