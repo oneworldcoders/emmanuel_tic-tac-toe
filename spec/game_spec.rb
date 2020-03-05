@@ -34,46 +34,59 @@ RSpec.describe Game do
         end
     end
 
-    context "Hoizontal Win" do
-
+    context "Check Win" do
         before(:each) do
             @player1 = Player.new
             @player2 = Player.new("O")
             @game = Game.new
         end
 
-        it "should check for a win in the first row with X" do
-            for i in 1..3 do
-                @player1.play(i, @game)
+        context "Hoizontal Win" do
+            it "should check for a win in the first row with X" do
+                for i in 1..3 do
+                    @player1.play(i, @game)
+                end
+
+                expect(@game.check_horizontal_win(@player1.get_mark)).to eq(true)
             end
 
-            expect(@game.check_horizontal_win(@player1.get_mark)).to eq(true)
-        end
+            it "should return false for a draw in the first row" do
+                @player1.play(1, @game)
+                @player2.play(2, @game)
+                @player1.play(3, @game)
 
-        it "should return false for a draw in the first row" do
-            @player1.play(1, @game)
-            @player2.play(2, @game)
-            @player1.play(3, @game)
-
-            expect(@game.check_horizontal_win(@player1.get_mark)).to eq(false)
-        end
-
-        it "should check for a win in the first row with O" do
-            for i in 1..3 do
-                @player2.play(i, @game)
+                expect(@game.check_horizontal_win(@player1.get_mark)).to eq(false)
             end
 
-            expect(@game.check_horizontal_win(@player2.get_mark)).to eq(true)
-        end
+            it "should check for a win in the first row with O" do
+                for i in 1..3 do
+                    @player2.play(i, @game)
+                end
 
-        it "should return true for a win in the second row" do
-            for i in 4..6 do
-                @player1.play(i, @game)
+                expect(@game.check_horizontal_win(@player2.get_mark)).to eq(true)
             end
 
-            expect(@game.check_horizontal_win(@player1.get_mark)).to eq(true)
+            it "should return true for a win in the second row" do
+                for i in 4..6 do
+                    @player1.play(i, @game)
+                end
+
+                expect(@game.check_horizontal_win(@player1.get_mark)).to eq(true)
+            end
+
         end
 
+
+        context "Vertical Win" do
+            it "should return true for a win in the first column for player1" do
+                i = 1
+                while i <= 8
+                    @player1.play(i, @game)
+                    i += 3
+                end
+                expect(@game.check_vertical_win(@player1.get_mark)).to eq(true)
+            end
+        end
     end
 
 end

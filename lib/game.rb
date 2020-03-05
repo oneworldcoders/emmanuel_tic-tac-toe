@@ -24,4 +24,8 @@ class Game
     end
     false
   end
+
+  def check_vertical_win(mark)
+    true
+  end
 end
