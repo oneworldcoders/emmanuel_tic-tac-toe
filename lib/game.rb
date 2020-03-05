@@ -37,8 +37,11 @@ class Game
   def check_diagonal_win(mark)
     if(@state[0] == mark && @state[4] == mark && @state[8] == mark)
       true
+    elsif(@state[2]  == mark && @state[4] == mark && @state[6] == mark)
+      true
     else
       false
     end
   end
+  
 end
