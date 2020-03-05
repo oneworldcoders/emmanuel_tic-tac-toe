@@ -93,6 +93,15 @@ RSpec.describe Game do
                 @player1.play(7, @game)
                 expect(@game.check_vertical_win(@player1.get_mark)).to eq(false)
             end
+
+            it "should return true for a win in the first column for player 2" do
+                i = 1
+                while i <= 8
+                    @player2.play(i, @game)
+                    i += 3
+                end
+                expect(@game.check_vertical_win(@player2.get_mark)).to eq(true)
+            end
         end
     end
 
