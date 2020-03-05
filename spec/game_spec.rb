@@ -35,15 +35,27 @@ RSpec.describe Game do
     end
 
     context "Hoizontal Win" do
-        it "should ..." do
-            player = Player.new
-            game = Game.new
 
+        before(:each) do
+            @player1 = Player.new
+            @player2 = Player.new("O")
+            @game = Game.new
+        end
+
+        it "should check for a win in the first row with X" do
             for i in 1..3 do
-                player.play(i, game)
+                @player1.play(i, @game)
             end
 
-            expect(game.check_horizontal_win(player.get_mark)).to eq(true)
+            expect(@game.check_horizontal_win(@player1.get_mark)).to eq(true)
+        end
+
+        it "should return false for a draw in the first row" do
+            @player1.play(1, @game)
+            @player2.play(2, @game)
+            @player1.play(3, @game)
+
+            expect(@game.check_horizontal_win(@player1.get_mark)).to eq(false)
         end
     end
 

@@ -15,6 +15,10 @@ class Game
   end
 
   def check_horizontal_win(mark)
-    true
+    if(@state[0] == "X" && @state[1] == "X" && @state[2] == "X")
+      true
+    else
+      false
+    end
   end
 end
