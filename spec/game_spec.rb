@@ -1,10 +1,13 @@
 require "game"
 require "player"
 
-RSpec.describe Game do
 
+RSpec.describe Game do
+    
     before(:each) do
         @game = Game.new
+        @player1 = Player.new
+        @player2 = Player.new("O")
     end
 
     it "sets a mark" do
@@ -35,42 +38,33 @@ RSpec.describe Game do
     end
 
     context "Check Win" do
-        before(:each) do
-            @player1 = Player.new
-            @player2 = Player.new("O")
-            @game = Game.new
-        end
 
         context "Hoizontal Win" do
             it "should check for a win in the first row with X" do
-                for i in 1..3 do
-                    @player1.play(i, @game)
-                end
-
+                @game.set_marks(['X', 'X', 'X'],
+                                ['',  '',  ''],
+                                ['',  '',  ''])
                 expect(@game.check_horizontal_win(@player1.get_mark)).to eq(true)
             end
 
             it "should return false for a draw in the first row" do
-                @player1.play(1, @game)
-                @player2.play(2, @game)
-                @player1.play(3, @game)
-
+                @game.set_marks(['X', 'O', 'X'],
+                                ['',  '',  ''],
+                                ['',  '',  ''])
                 expect(@game.check_horizontal_win(@player1.get_mark)).to eq(false)
             end
 
             it "should check for a win in the first row with O" do
-                for i in 1..3 do
-                    @player2.play(i, @game)
-                end
-
+                @game.set_marks(['O', 'O', 'O'],
+                                ['',  '',  ''],
+                                ['',  '',  ''])
                 expect(@game.check_horizontal_win(@player2.get_mark)).to eq(true)
             end
 
             it "should return true for a win in the second row" do
-                for i in 4..6 do
-                    @player1.play(i, @game)
-                end
-
+                @game.set_marks(['',  '',  ''],
+                                ['X', 'X', 'X'],
+                                ['',  '',  ''])
                 expect(@game.check_horizontal_win(@player1.get_mark)).to eq(true)
             end
 
@@ -79,36 +73,30 @@ RSpec.describe Game do
 
         context "Vertical Win" do
             it "should return true for a win in the first column for player1" do
-                i = 1
-                while i <= 8
-                    @player1.play(i, @game)
-                    i += 3
-                end
+                @game.set_marks(['X', '', ''],
+                                ['X', '', ''],
+                                ['X', '', ''])
                 expect(@game.check_vertical_win(@player1.get_mark)).to eq(true)
             end
 
             it "should return false for a draw in the first column" do
-                @player1.play(1, @game)
-                @player2.play(4, @game)
-                @player1.play(7, @game)
+                @game.set_marks(['X', '', ''],
+                                ['O', '', ''],
+                                ['X', '', ''])
                 expect(@game.check_vertical_win(@player1.get_mark)).to eq(false)
             end
 
             it "should return true for a win in the first column for player 2" do
-                i = 1
-                while i <= 8
-                    @player2.play(i, @game)
-                    i += 3
-                end
+                @game.set_marks(['O', '', ''],
+                                ['O', '', ''],
+                                ['O', '', ''])
                 expect(@game.check_vertical_win(@player2.get_mark)).to eq(true)
             end
 
             it "should return true for a win in second column for player 1" do
-                i = 2
-                while i <= 8
-                    @player1.play(i, @game)
-                    i += 3
-                end
+                @game.set_marks(['', 'X', ''],
+                                ['', 'X', ''],
+                                ['', 'X', ''])
                 expect(@game.check_vertical_win(@player1.get_mark)).to eq(true)
             end
         end
@@ -116,36 +104,30 @@ RSpec.describe Game do
 
         context "Diagonal Win" do
             it "should return true for a win for player 1 in the left 2 right diagonal" do
-                i = 1
-                while i <= 9
-                    @player1.play(i, @game)
-                    i += 4
-                end
+                @game.set_marks(['X', '', ''],
+                                ['', 'X', ''],
+                                ['', '', 'X'])
                 expect(@game.check_diagonal_win(@player1.get_mark)).to eq(true)
             end
 
             it "should return false for a draw in the first diaginal" do
-                @player1.play(1, @game)
-                @player2.play(5, @game)
-                @player1.play(9, @game)
+                @game.set_marks(['X', '', ''],
+                                ['', 'O', ''],
+                                ['', '', 'X'])
                 expect(@game.check_diagonal_win(@player1.get_mark)).to eq(false)
             end
 
             it "should return true for a win for player 2 in the first diagonal" do
-                i = 1
-                while i <= 9
-                    @player2.play(i, @game)
-                    i += 4
-                end
+                @game.set_marks(['O', '', ''],
+                                ['', 'O', ''],
+                                ['', '', 'O'])
                 expect(@game.check_diagonal_win(@player2.get_mark)).to eq(true)
             end
 
             it "should return true for a win for player 1 in the second diagonal" do
-                i = 3
-                while i <= 9
-                    @player1.play(i, @game)
-                    i += 2
-                end
+                @game.set_marks(['', '', 'X'],
+                                ['', 'X', ''],
+                                ['X', '', ''])
                 expect(@game.check_diagonal_win(@player1.get_mark)).to eq(true)
             end
         end
@@ -159,26 +141,17 @@ RSpec.describe Game do
                 end
 
                 it "shouldn't have an available slot after a play in that slot" do
-                    @player1.play(1, @game)
-                    expect(@game.available_moves).to eq([2, 3, 4, 5, 6, 7, 8, 9])
+                    @game.set_marks(['', '', 'X'],
+                                    ['', 'X', ''],
+                                    ['X', '', ''])
+                    expect(@game.available_moves).to eq([1, 2, 4, 6, 8, 9])
                 end
             end
 
             it "should have no available moves and win" do
-                # X X O
-                # O O X
-                # X O X
-
-                @player1.play(1, @game)
-                @player1.play(2, @game)
-                @player1.play(7, @game)
-                @player1.play(6, @game)
-                @player1.play(9, @game)
-
-                @player2.play(5, @game)
-                @player2.play(3, @game)
-                @player2.play(4, @game)
-                @player2.play(8, @game)
+                @game.set_marks(['X', 'X', 'O'],
+                                ['O', 'O', 'X'],
+                                ['X', 'O', 'X']  )
 
                 expect(@game.check_win(@player1.get_mark)).to eq(false)
                 expect(@game.check_win(@player2.get_mark)).to eq(false)

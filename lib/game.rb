@@ -14,6 +14,14 @@ class Game
     @state[index]
   end
 
+  def set_marks(row1, row2, row3)
+    for index in 0..2 do
+      @state[index] = row1[index]
+      @state[index + 3] = row2[index]
+      @state[index + 6] = row3[index]
+    end
+  end
+
   def check_horizontal_win(mark)
     i = 0
     while i <= 8
@@ -60,5 +68,4 @@ class Game
     end
     available_moves
   end
-  
 end
