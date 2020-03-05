@@ -33,4 +33,8 @@ class Game
     end
     false
   end
+
+  def check_diagonal_win(mark)
+    true
+  end
 end

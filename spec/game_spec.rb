@@ -112,6 +112,18 @@ RSpec.describe Game do
                 expect(@game.check_vertical_win(@player1.get_mark)).to eq(true)
             end
         end
+
+
+        context "Diagonal Win" do
+            it "should return true for a win for player 1 in the left 2 right diagonal" do
+                i = 1
+                while i <= 9
+                    @player1.play(i, @game)
+                    i += 4
+                end
+                expect(@game.check_diagonal_win(@player1.get_mark)).to eq(true)
+            end
+        end
     end
 
 end
