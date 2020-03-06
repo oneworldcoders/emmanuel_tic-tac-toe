@@ -37,6 +37,14 @@ RSpec.describe Game do
         end
     end
 
+    it "returns a string representation of an empty board" do
+        board_string = "|-||-||-|
+                        |-||-||-|
+                        |-||-||-|".split.join(' ')
+        expect(@game.board_as_string.gsub("\n", ' ').squeeze(' ')).to eq(board_string)
+
+    end
+
     context "Check Win" do
 
         context "Hoizontal Win" do

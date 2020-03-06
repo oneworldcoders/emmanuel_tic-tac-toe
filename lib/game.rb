@@ -22,6 +22,18 @@ class Game
     end
   end
 
+  def board_as_string
+    string = ''
+    for index in 0..8 do
+      val = (@state[index] != '') ? @state[index]: "-"
+      string += "|" + val.to_s + "|"
+      if index == 2 || index == 5
+        string += "\n"
+      end
+    end
+    string
+  end
+
   def check_horizontal_win(mark)
     i = 0
     while i <= 8
