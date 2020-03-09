@@ -10,5 +10,9 @@ require "./lib/tic_tac_toe"
 # require "pry"
 # Pry.start
 
-require "irb"
-IRB.start(__FILE__)
+tictactoe = TicTacToe::Welcome.new
+
+tictactoe.welcome
+tictactoe.start_game
+
+

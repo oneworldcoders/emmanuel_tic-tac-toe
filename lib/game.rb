@@ -15,17 +15,17 @@ class Game
   end
 
   def set_marks(row1, row2, row3)
-    for index in 0..2 do
-      @state[index] = row1[index]
-      @state[index + 3] = row2[index]
-      @state[index + 6] = row3[index]
+    0.upto(2) do |i|
+      @state[i] = row1[i]
+      @state[i + 3] = row2[i]
+      @state[i + 6] = row3[i]
     end
   end
 
   def board_as_string
     string = ''
-    for index in 0..8 do
-      val = (@state[index] != '') ? @state[index]: "-"
+    @state.each_with_index do |spot, index|
+      val = (spot != '') ? spot: "-"
       string += "|" + val.to_s + "|"
       if index == 2 || index == 5
         string += "\n"
@@ -46,7 +46,7 @@ class Game
   end
 
   def check_vertical_win(mark)
-    for i in 0..2 do
+    0.upto(8) do |i|
       if(@state[i] == mark && @state[i+3] == mark && @state[i+6] == mark)
         return true
       end
@@ -73,9 +73,9 @@ class Game
 
   def available_moves
     available_moves = []
-    for index in 0..8 do
-      if(@state[index] == "")
-        available_moves.push(index + 1)
+    0.upto(8) do |i|
+      if(@state[i] == "")
+        available_moves.push(i + 1)
       end
     end
     available_moves
