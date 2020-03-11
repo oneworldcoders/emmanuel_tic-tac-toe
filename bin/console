@@ -10,6 +10,18 @@ require "./lib/tic_tac_toe"
 # require "pry"
 # Pry.start
 
+
+require "./lib/lang/strings"
+lang = 'fr'
+
+if lang == 'en'
+  include English
+
+else
+  include French
+end
+
+
 tictactoe = TicTacToe::Welcome.new
 
 tictactoe.welcome

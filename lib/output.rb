@@ -1,3 +1,4 @@
+
 class Output
 
     attr_reader :draw_text, :player1_win, :player2_win
@@ -29,7 +30,7 @@ class Output
     end
 
     def display_draw_result
-      puts @draw_text
+      puts STR[:draw_text]
     end
 
     def display_player1_text
