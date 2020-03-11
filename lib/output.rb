@@ -32,20 +32,16 @@ class Output
       puts @draw_text
     end
 
-    def display_player1_win
-      puts @player1_win
-    end
-
-    def display_player2_win
-      puts @player2_win
-    end
-
     def display_player1_text
       print @player1
     end
 
     def display_player2_text
       print @player2
+    end
+
+    def display_winner(winner)
+      puts winner
     end
 
     def display_board(game)

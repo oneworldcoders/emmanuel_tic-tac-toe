@@ -1,14 +1,24 @@
 require 'game'
 require 'output'
-require 'input'
 
 
 RSpec.describe TicTacToe do
 
+  class TestInput
+    def initialize(array=[])
+      @array = array
+      @i = -1
+    end
+  
+    def gets
+      @array[@i += 1]
+    end
+  end  
+
   before(:each) do
     @game = Game.new
     @output = Output.new
-    @test_input = Input.new(["7", "8"])
+    @test_input = TestInput.new(["7", "8"])
     @app = TicTacToe::Welcome.new(@game, @output, @test_input)
 
   end

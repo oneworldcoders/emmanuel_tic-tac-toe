@@ -35,18 +35,16 @@ class Game
   end
 
   def check_horizontal_win(mark)
-    i = 0
-    while i <= 8
-      if(@state[i] == mark && @state[i+1] == mark && @state[i+2] == mark)
+    @state.each_slice(3) do |row|
+      if(row.uniq.count == 1 && row.first == mark)
         return true
       end
-      i += 3
     end
     false
   end
 
   def check_vertical_win(mark)
-    0.upto(8) do |i|
+    0.upto(2) do |i|
       if(@state[i] == mark && @state[i+3] == mark && @state[i+6] == mark)
         return true
       end
@@ -65,10 +63,7 @@ class Game
   end
 
   def check_win(mark)
-    if(check_diagonal_win(mark) || check_horizontal_win(mark) || check_vertical_win(mark))
-      return true
-    end
-    false
+    (check_diagonal_win(mark) || check_horizontal_win(mark) || check_vertical_win(mark))
   end
 
   def available_moves
