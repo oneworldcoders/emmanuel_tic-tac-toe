@@ -1,0 +1,41 @@
+
+{
+    "language" : {
+        "1" : "en",
+        "2" : "fr",
+        "3" : "krw"
+    },
+
+    "en" : {
+        "draw_text" : "Draw",
+        "player1" : "Player 1: ",
+        "player2" : "Player 2: ",
+        "player1_win" : "Player 1 is Winner",
+        "player2_win" : "Player 2 is Winner",
+        "available_moves" : "\nAvailable moves: ",
+        "language_options" : "Choose a language\n1 : English\n2 : French\n3 : Kinyarwanda",
+        "welcome_message" : "Welcome to Tic Tac Toe!\n---------------- Rules ---------------------\nThere are 2 players.\nPlayer 1 starts and his mark is X\nPlayer 2 then plays with O\n\nAvailable moves are printed to show the pool of\nmoves left so that players choose\n\nThe first to win 3 consecutive victories\nAt anytime enter '0' to open the menu\n--------------------------------------------"
+    },
+
+    "fr" : {
+        "draw_text" : "Faire",
+        "player1" : "Joueur un: ",
+        "player2" : "Joueur deux: ",
+        "player1_win" : "Le joueur un est gagnant",
+        "player2_win" : "Le joueur deux est gagnant",
+        "available_moves" : "\nMouvements disponibles: ",
+        "language_options" : "Choisir une langue\n1: Anglais\n2: Français\n3: Kinyarwanda",
+        "welcome_message" : "Bienvenue chez Tic Tac Toe!\n---------------- Règles ---------------------\nIl y a 2 joueurs.\nLe joueur 1 démarre et sa marque est X\nLe joueur 2 joue ensuite avec O \n\nLes mouvements disponibles sont imprimés pour montrer le pool de\nse déplace vers la gauche pour que les joueurs choisissent\n\nLe premier à remporter 3 victoires consécutives\nÀ tout moment, entrez «0» pour ouvrir le menu\n--------------------------------------------"
+    },
+
+    "krw" : {
+        "draw_text" : "Kunganya",
+        "player1" : "Umucuranzi rimwe: ",
+        "player2" : "Umucuranzi ebyiri: ",
+        "player1_win" : "Umucuranzi rimwe ni umutsinzi",
+        "player2_win" : "Umucuranzi ebyiri ni umutsinzi",
+        "available_moves" : "\nUkuboneka kuyega: ",
+        "language_options" : "",
+        "welcome_message" : ""
+    }
+}

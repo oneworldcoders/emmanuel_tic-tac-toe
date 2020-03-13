@@ -11,20 +11,8 @@ require "./lib/tic_tac_toe"
 # Pry.start
 
 
-require "./lib/lang/strings"
-lang = 'fr'
-
-if lang == 'en'
-  include English
-
-else
-  include French
-end
-
-
 tictactoe = TicTacToe::Welcome.new
-
+tictactoe.choose_language
 tictactoe.welcome
 tictactoe.start_game
-
 
