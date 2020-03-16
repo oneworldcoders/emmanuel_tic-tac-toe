@@ -9,11 +9,11 @@ require 'json'
 
 module TicTacToe
 
-  class Welcome
+  class Tic_tac_toe
 
     MENU_CODE = 0
 
-    def initialize (game=Game.new, output=Output.new, input=Input.new)
+    def initialize (game=TicTacToe::Game.new, output=TicTacToe::Output.new, input=TicTacToe::Input.new)
       @game = game
       @player1 = Player.new("X")
       @player2 = Player.new("O")

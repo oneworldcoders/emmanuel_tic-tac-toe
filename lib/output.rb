@@ -1,6 +1,7 @@
-class Output
+module TicTacToe
+  class Output
 
-    def initialize(lang=Language.new)
+    def initialize(lang=TicTacToe::Language.new)
       @lang = lang
     end
 
@@ -47,4 +48,5 @@ class Output
     def display_language_menu
       puts @lang.get_string('language_options')
     end
+  end
 end

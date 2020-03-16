@@ -2,7 +2,7 @@ require 'game'
 require 'output'
 
 
-RSpec.describe TicTacToe do
+RSpec.describe TicTacToe::Tic_tac_toe do
 
   class TestInput
     def initialize(array=[])
@@ -83,10 +83,10 @@ RSpec.describe TicTacToe do
 
 
   before(:each) do
-    @game = Game.new
+    @game = TicTacToe::Game.new
     @output = TestOutput.new
     @test_input = TestInput.new(["7", "8"])
-    @app = TicTacToe::Welcome.new(@game, @output, @test_input)
+    @app = TicTacToe::Tic_tac_toe.new(@game, @output, @test_input)
 
   end
 
@@ -135,7 +135,7 @@ RSpec.describe TicTacToe do
 
       it "should change the language during play" do
         test_input = TestInput.new(["7", "0", "1", "8"])
-        app = TicTacToe::Welcome.new(@game, @output, test_input)
+        app = TicTacToe::Tic_tac_toe.new(@game, @output, test_input)
         @game.set_marks(
         ['X', 'O', 'O'],
         ['O', 'O', 'X'],
@@ -149,7 +149,7 @@ RSpec.describe TicTacToe do
 
       it "should change the language multiple times during play" do
         test_input = TestInput.new(["7", "0", "1", "0", "2", "0", "3", "8"])
-        app = TicTacToe::Welcome.new(@game, @output, test_input)
+        app = TicTacToe::Tic_tac_toe.new(@game, @output, test_input)
         @game.set_marks(
         ['X', 'O', 'O'],
         ['O', 'O', 'X'],

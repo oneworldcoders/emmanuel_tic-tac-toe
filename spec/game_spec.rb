@@ -2,12 +2,12 @@ require "game"
 require "player"
 
 
-RSpec.describe Game do
+RSpec.describe TicTacToe::Game do
     
     before(:each) do
-        @game = Game.new
-        @player1 = Player.new
-        @player2 = Player.new("O")
+        @game = TicTacToe::Game.new
+        @player1 = TicTacToe::Player.new
+        @player2 = TicTacToe::Player.new("O")
     end
 
     it "sets a mark" do

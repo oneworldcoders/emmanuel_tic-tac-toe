@@ -1,15 +1,15 @@
 require 'language'
 
-RSpec.describe Language do
+RSpec.describe TicTacToe::Language do
     it "should set language" do
-        language = Language.new('en')
+        language = TicTacToe::Language.new('en')
 
         language.set_language(2)
         expect(language.get_language).to eq('fr')
     end
 
     it "should load the default translation file" do
-        language = Language.new('en')
+        language = TicTacToe::Language.new('en')
 
         expect(language.get_string('draw_text')).to eq('Draw')
     end
@@ -19,7 +19,7 @@ RSpec.describe Language do
         fake_translation_file['fake'] = {}
         fake_translation_file['fake']['draw_text'] = 'Fake'
 
-        language = Language.new('fake', fake_translation_file)
+        language = TicTacToe::Language.new('fake', fake_translation_file)
 
         expect(language.get_string('draw_text')).to eq('Fake')
     end
