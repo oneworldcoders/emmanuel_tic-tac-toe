@@ -68,6 +68,10 @@ module TicTacToe
       (check_diagonal_win(mark) || check_horizontal_win(mark) || check_vertical_win(mark))
     end
 
+    def draw?
+      available_moves == []
+    end
+
     def available_moves
       available_moves = []
       0.upto(8) do |i|
