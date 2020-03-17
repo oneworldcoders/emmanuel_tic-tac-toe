@@ -8,6 +8,10 @@ module TicTacToe
       def get_turn
         @turn
       end
+      
+      def set_turn(turn)
+        @turn = turn
+      end
 
       def switch_turn
       @turn = @turn == "X" ? "O" : "X"

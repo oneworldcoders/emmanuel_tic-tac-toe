@@ -9,16 +9,28 @@ module TicTacToe
       @lang.set_language(lang)
     end
 
+    def get_welcome_message
+      @lang.get_string('welcome_message')
+    end
+
     def display_welcome_message
-      puts @lang.get_string('welcome_message')
+      puts get_welcome_message
+    end
+
+    def get_draw_text
+      @lang.get_string('draw_text')
     end
 
     def display_draw_result
-      puts @lang.get_string('draw_text')
+      puts get_draw_text
+    end
+
+    def get_player1_text
+      @lang.get_string('player1')
     end
 
     def display_player1_text
-      print @lang.get_string('player1')
+      print get_player1_text
     end
 
     def get_player1_win_text
@@ -29,8 +41,12 @@ module TicTacToe
       @lang.get_string('player2_win')
     end
 
+    def get_player2_text
+      @lang.get_string('player2')
+    end
+
     def display_player2_text
-      print @lang.get_string('player2')
+      print get_player2_text
     end
 
     def display_winner(winner)

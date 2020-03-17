@@ -1,7 +1,3 @@
-require 'game'
-require 'output'
-
-
 RSpec.describe TicTacToe::Tic_tac_toe do
 
   class TestInput
@@ -129,7 +125,6 @@ RSpec.describe TicTacToe::Tic_tac_toe do
     context "language preferences" do
       it "should display the language menu" do
         @app.choose_language
-
         expect(@output.language_menu).to be(true)
       end
 

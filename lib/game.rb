@@ -1,6 +1,8 @@
 module TicTacToe
   class Game
-    def initialize(state=Array.new(9, ""))
+
+    attr_accessor :state
+    def initialize(state=Array.new(9, ''))
       @state = state
     end
 

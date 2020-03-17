@@ -1,6 +1,7 @@
 module TicTacToe
     class Language
-        def initialize(lang='en', language_data=JSON.parse(File.read('./lib/language.json')))
+        
+        def initialize(lang='en', language_data=JSON.parse(File.read(File.join(File.dirname(__FILE__), 'language.json'))))
             @lang = lang
             @language_data = language_data
         end

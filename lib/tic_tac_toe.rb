@@ -1,9 +1,9 @@
 require_relative 'game'
-require './lib/player'
-require './lib/turn'
-require './lib/output'
-require './lib/input'
-require './lib/language'
+require_relative 'player'
+require_relative 'turn'
+require_relative 'output'
+require_relative 'input'
+require_relative 'language'
 require 'json'
 
 
