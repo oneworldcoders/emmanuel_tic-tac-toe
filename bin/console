@@ -10,9 +10,9 @@ require "./lib/tic_tac_toe"
 # require "pry"
 # Pry.start
 
-tictactoe = TicTacToe::Welcome.new
 
+tictactoe = TicTacToe::Tic_tac_toe.new
+tictactoe.choose_language
 tictactoe.welcome
 tictactoe.start_game
-
 

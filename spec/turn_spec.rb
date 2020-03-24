@@ -1,9 +1,9 @@
 require "turn"
 
-RSpec.describe Turn do
+RSpec.describe TicTacToe::Turn do
 
   before(:each) do
-    @turn_object = Turn.new
+    @turn_object = TicTacToe::Turn.new
   end
 
   it "should start with X's turn" do

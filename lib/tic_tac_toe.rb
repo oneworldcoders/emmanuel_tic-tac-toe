@@ -2,13 +2,18 @@ require './lib/game'
 require './lib/player'
 require './lib/turn'
 require './lib/output'
+require './lib/input'
+require './lib/language'
+require 'json'
 
 
 module TicTacToe
 
-  class Welcome
+  class Tic_tac_toe
 
-    def initialize (game=Game.new, output=Output.new, input=STDIN)
+    MENU_CODE = 0
+
+    def initialize (game=TicTacToe::Game.new, output=TicTacToe::Output.new, input=TicTacToe::Input.new)
       @game = game
       @player1 = Player.new("X")
       @player2 = Player.new("O")
@@ -21,7 +26,12 @@ module TicTacToe
       @output.display_welcome_message
     end
 
-    def isDraw?(game)
+    def choose_language
+      @output.display_language_menu
+      @output.set_language(@input.get_integer)
+    end
+
+    def is_draw?(game)
       @output.display_board(game)
       @output.display_available_slots(game)
       if @game.available_moves == []
@@ -32,26 +42,31 @@ module TicTacToe
 
     def start_game
       player = @player1
-      while !@game.check_win(player.get_mark) && !isDraw?(@game) do
+      until @game.check_win(player.get_mark) || is_draw?(@game) do
 
         if @turn.get_turn == 'X'
           @output.display_player1_text
           player = @player1
-          win_text = @output.player1_win
+          win_text = @output.get_player1_win_text
         else
           @output.display_player2_text
           player = @player2
-          win_text = @output.player2_win
+          win_text = @output.get_player2_win_text
         end
-        i = @input.gets.chomp.to_i
-        player.play(i, @game)
         
-        if @game.check_win(player.get_mark)
-          @output.display_board(@game)
-          @output.display_available_slots(@game)
-          @output.display_winner(win_text)
+        i = @input.get_integer
+        if i == MENU_CODE
+          choose_language
+        else
+          player.play(i, @game)
+        
+          if @game.check_win(player.get_mark)
+            @output.display_board(@game)
+            @output.display_available_slots(@game)
+            @output.display_winner(win_text)
+          end
+          @turn.switch_turn
         end
-        @turn.switch_turn
 
       end
     end
