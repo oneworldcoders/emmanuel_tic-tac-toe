@@ -1,5 +1,3 @@
-require 'language'
-
 RSpec.describe TicTacToe::Language do
     it "should set language" do
         language = TicTacToe::Language.new('en')

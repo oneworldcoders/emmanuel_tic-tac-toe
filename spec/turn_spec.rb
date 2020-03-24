@@ -1,5 +1,3 @@
-require "turn"
-
 RSpec.describe TicTacToe::Turn do
 
   before(:each) do

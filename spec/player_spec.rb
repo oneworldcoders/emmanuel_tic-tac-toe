@@ -1,7 +1,3 @@
-require "player"
-require "game"
-
-
 RSpec.describe TicTacToe::Player do
     describe "A player making moves" do
 

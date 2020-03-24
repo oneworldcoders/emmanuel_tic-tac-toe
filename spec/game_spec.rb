@@ -1,7 +1,3 @@
-require "game"
-require "player"
-
-
 RSpec.describe TicTacToe::Game do
     
     before(:each) do
