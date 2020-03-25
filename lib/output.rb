@@ -9,6 +9,10 @@ module TicTacToe
       @lang.set_language(lang)
     end
 
+    def get_language
+      @lang.get_language
+    end
+
     def get_welcome_message
       @lang.get_string('welcome_message')
     end
